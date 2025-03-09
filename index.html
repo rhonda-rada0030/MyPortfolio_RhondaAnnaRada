@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navhead {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #333;
+        }
+        header {
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav {
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #666;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto 5px; /* Increased margin to prevent overlap with fixed nav */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .certificates img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+            .certificates img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 5px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .certificates img:hover {
+            transform: scale(1.1);
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .lightbox img {
+            max-width: 60%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .lightbox:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        .skills-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .skills-column {
+        width: 32%; /* Adjust width for spacing */
+        text-align: left;
+    }
+        
+</style>
+<script>
+    function openLightbox(imgSrc) {
+        document.getElementById('lightbox-img').src = imgSrc;
+        document.getElementById('lightbox').style.visibility = 'visible';
+        document.getElementById('lightbox').style.opacity = '1';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').style.visibility = 'hidden';
+        document.getElementById('lightbox').style.opacity = '0';
+    }
+</script>
+<script>
+    window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+</script>
+</head>
+<body>
+  <div class="navhead">
+    <header>
+        My Portfolio
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+        <a href="Resume-RADA_RHONDA_ANNA.pdf" download>Resume</a>
+    </nav>
+  </div>
+    <div class="container" id="about" style="scroll-margin-top: 120px; display: flex; align-items: center; justify-content: center; text-align: Center;">
+        <div style="width: 60%;">
+            <h2 style="margin-bottom: 1px;">Rhonda Anna R. Rada</h2>
+            <h3 style="margin-top: 0px;">IT Professional</h3>
+            <p >Hi, I'am an aspiring IT professional with a strong passion for database administration, SQL programming, and IT support. Although I do not have extensive experience yet, I am eager to learn and continuously improve my technical skills. I have completed multiple training courses in SQL, database management, and IT troubleshooting, and I am always looking for opportunities to apply and expand my knowledge.</p>
+            <p >I am highly resourceful, detail-oriented, and committed to problem-solving. I am actively seeking opportunities to gain hands-on experience in IT, where I can contribute my skills while learning from industry professionals.</p>
+            <p >Feel free to explore my certifications and contact me for collaboration or potential opportunities!</p>
+        </div>
+        <div style="width: 40%; display: flex; justify-content: center;" >
+            <img src="Rhonda Anna Rada.png" alt="My Picture" style="width: 100%; max-width: 250px; border-radius: 10px;">
+        </div>
+    </div>
+    <div class="container" id="skills" style="scroll-margin-top: 120px;">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <p>• SQL (MSSQL, PostgreSQL)</p>
+                <p>• Database Administration</p>
+                <p>• IT Support</p>
+                <p>• HTML, CSS, WordPress</p>
+            </div>
+            <div class="skills-column">
+                <p>• QuickBooks</p>
+                <p>• Network Basics</p>
+                <p>• Software & Hardware Installation</p>
+                <p>• Report Generation (Excel, Power Query, Pivot Tables)</p>
+            </div>
+            <div class="skills-column">
+                <p>• Data Encoding & Processing</p>
+                <p>• Cloud & Collaboration Tools (Google Workspace, Microsoft Office)</p>
+                <p>• Version Control (Git, GitHub)</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="certificates" style="scroll-margin-top: 120px;">
+        <h2>My Certificates</h2>
+        <div class="certificates">
+            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                <img id="lightbox-img" src="" alt="Expanded Certificate">
+            </div>
+            <img src="certificates/July29-2024.jpeg" alt="Certificate 1" onclick="openLightbox(this.src)">
+            <img src="certificates/July13-2024.jpeg" alt="Certificate 2" onclick="openLightbox(this.src)">
+            <img src="certificates/July8-2024.png" alt="Certificate 3" onclick="openLightbox(this.src)">
+            <img src="certificates/August4-2024.jpeg" alt="Certificate 4" onclick="openLightbox(this.src)">
+            <img src="certificates/August3-2024.jpeg" alt="Certificate 5" onclick="openLightbox(this.src)">
+            <img src="certificates/March16-2023.png" alt="Certificate 6" onclick="openLightbox(this.src)">
+            <img src="certificates/March15-17-2023.png" alt="Certificate 7" onclick="openLightbox(this.src)">
+            <img src="certificates/March9-2023.png" alt="Certificate 8" onclick="openLightbox(this.src)">
+            <img src="certificates/March8-2023.png" alt="Certificate 9" onclick="openLightbox(this.src)">
+            <img src="certificates/March4-2023.png" alt="Certificate 10" onclick="openLightbox(this.src)">
+            <img src="certificates/March1-2023.png" alt="Certificate 11" onclick="openLightbox(this.src)">
+            <img src="certificates/February28-2023.png" alt="Certificate 12" onclick="openLightbox(this.src)">
+            <img src="certificates/February27-2023.png" alt="Certificate 13" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+    <div class="container" id="contact" style="scroll-margin-top: 120px;">
+        <h2>Contact Me</h2>
+        <p>Email: radarhondaanna0030@gmail.com</p>
+        <p>Phone: 0956-785-0859 
+            <p>LinkedIn: <a href="//www.linkedin.com/in/rhonda-anna-rada-317a72242/" target="_blank">Rhonda Anna Rada</a></p>
+    </div>
+    <footer>
+        &copy; 2025 Rhonda Anna Rada | Portfolio. All Rights Reserved.
+    </footer>
+</body>
+</html>
